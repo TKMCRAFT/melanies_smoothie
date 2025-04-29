@@ -41,7 +41,7 @@ try:
             
             st.subheader(fruit_chosen + ' Nutrition Information')
             # Fixed the API URL by removing "watermelon" from the string
-            fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + search_on)
+            fruityvice_response = requests.get(f"https://fruityvice.com/api/fruit/{fruit_chosen.lower()}")
             fv_df = st.dataframe(fruityvice_response.json(), use_container_width= True)
         
         my_insert_stmt = """INSERT INTO smoothies.public.orders(ingredients, name_on_order)
